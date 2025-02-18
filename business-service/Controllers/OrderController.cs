@@ -200,6 +200,12 @@ namespace business_service.Controllers
             return newOrder;
         }
 
+        /// <summary>
+        /// Отмена заказа
+        /// </summary>
+        /// <param name="id">Идентификатор заказа</param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         [HttpPost("{id}/cancel")]
         public async Task<OrderDto> Cancel(int id)
         {
