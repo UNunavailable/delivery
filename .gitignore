@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/crud-service/AppData/crud.sqlite
+/crud-service/AppData/crud.sqlite-shm
+/crud-service/AppData/crud.sqlite-wal
