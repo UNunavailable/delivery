@@ -1,0 +1,26 @@
+services:
+  crud-service:
+    image: ${DOCKER_REGISTRY-}crudservice
+    ports:
+      - "7000:8080" 
+    build:
+      context: .
+      dockerfile: crud-service/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+
+  business-service:
+    image: ${DOCKER_REGISTRY-}businessservice
+    ports:
+      - "7001:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - DbServiceUrl=http://crud-service:8080
+    build:
+      context: .
+      dockerfile: business-service/Dockerfile
+    depends_on:
+      - crud-service
+
